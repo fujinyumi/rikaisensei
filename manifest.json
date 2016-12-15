@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
 	
-	"name": "rikaikun",
-	"version": "0.8.92",
+	"name": "rikaisensei",
+	"version": "0.0.0.1",
 	
-	"description": "A port of rikaichan for chrome. Translate Japanese by hovering over words.",
+	"description": "A extension of rikaikun, the port of rikaichan for Chrome to include easy-to-use vocab options.",
 	"icons": { "48": "images/icon48.png",
 				"128": "images/icon128.png"},
 	
