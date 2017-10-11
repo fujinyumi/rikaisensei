@@ -5,7 +5,134 @@
 	font-size: 10pt;
 }
 
+body {
+	background-color:#3d3d3d;
+}
+
+h1 {
+	font-family: 'Trebuchet MS';
+    display: block;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    color:#3d3d3d;
+}
+
+h2 {
+	font-family: 'Trebuchet MS';
+    display: block;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    color:#3d3d3d;
+}
+
 #tabs {
+}
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+#sidebar {
+	display:inline-block;
+	float:left;
+	text-align:center;
+	width:20%;
+}
+
+#to-quizlet {
+	border: 1px solid #3d3d3d;
+	border-radius: 3px;
+	font-size:14px;
+	font-family:'Trebuchet MS';
+	padding:5px;
+	margin:auto;
+	width:60%;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+#to-anki {
+	border: 1px solid #3d3d3d;
+	border-radius: 3px;
+	font-size:14px;
+	font-family:'Trebuchet MS';
+	padding:5px;
+	margin:auto;
+	width:60%;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+#to-csv {
+	border: 1px solid #3d3d3d;
+	border-radius: 3px;
+	font-size:14px;
+	font-family:'Trebuchet MS';
+	padding:5px;
+	margin:auto;
+	width:60%;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+.section {
+	display:inline-block;
+	position:relative;
+	float:left;
+	margin: auto;
+	border: 1px solid #3d3d3d;
+	border-radius: 5px;
+	background-color: #fff;
+	text-align: center;
+	padding-bottom:10px;
+	width:40%;
+	margin-right:30px;
+}
+
+.jp-wordtab {
+	display:inline-block;
+	margin:auto;
+	padding:5px;
+	font-size:24px;
+	width:40%;
+	border: 1px solid #D0D3D5;
+	border-radius: 3px;
+	text-align:left;
+	height:50px;
+	line-height:50px;
+	vertical-align:top;
+	overflow:hidden;
+}
+
+.en-wordtab {
+	display:inline-block;
+	margin:auto;
+	padding:5px;
+	font-size:12px;
+	width:40%;
+	border: 1px solid #D0D3D5;
+	border-radius: 3px;
+	text-align:left;
+	height:50px;
+	line-height:50px;
+	float:middle;
+	vertical-align:top;
+	overflow:hidden;
+}
+
+.jp-wordtab:hover { 
+    background-color:#3d3d3d;
+	color:#fff;
+}
+.en-wordtab:hover { 
+    background-color:#3d3d3d;
+	color:#fff;
 }
 
 .tab {
@@ -35,10 +162,13 @@
 .tabContent.hide { display: none; }
 
 #options {
+	border-radius: 5px;
 	clear: both;
-	background-color: #dde;
+	background-color: #fff;
 	padding: 10px;
 	border: 1px solid black;
+	margin-top:20px;
+	margin-bottom:20px;
 }
 
 #options p, #options form {
