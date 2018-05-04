@@ -50,7 +50,7 @@ var rcxContent = {
 	nextDict: 3,
 	
 	//Adds the listeners and stuff.
-	enableTab: function() {
+	enableTab: function(config) {
 		if (window.rikaichan == null) {
 			window.rikaichan = {};
 			window.addEventListener('mousemove', this.onMouseMove, false);
@@ -59,6 +59,8 @@ var rcxContent = {
 			window.addEventListener('mousedown', this.onMouseDown, false);
 			window.addEventListener('mouseup', this.onMouseUp, false);
 		}
+		window.rikaichan.config = config;
+		this.altView = parseInt(config.popupLocation);
 	},
 	
 	//Removes the listeners and stuff
@@ -68,7 +70,7 @@ var rcxContent = {
 			window.removeEventListener('mousemove', this.onMouseMove, false);
 			window.removeEventListener('keydown', this.onKeyDown, true);
 			window.removeEventListener('keyup', this.onKeyUp, true);
-			window.removeEventListener('mosuedown', this.onMouseDown, false);
+			window.removeEventListener('mousedown', this.onMouseDown, false);
 			window.removeEventListener('mouseup', this.onMouseUp, false);
 
 			e = document.getElementById('rikaichan-css');
@@ -848,9 +850,9 @@ var rcxContent = {
 
 		var fake;
 		var tdata = window.rikaichan; // per-tab data
-		var range = document.caretRangeFromPoint(ev.clientX, ev.clientY);
-		var rp = range.startContainer;
-		var ro = range.startOffset;
+		var range;
+		var rp;
+		var ro;
 		// Put this in a try catch so that an exception here doesn't prevent editing due to div.
 		try {
 			if(ev.target.nodeName == 'TEXTAREA' || ev.target.nodeName == 'INPUT') {
@@ -859,6 +861,10 @@ var rcxContent = {
 				fake.scrollTop = ev.target.scrollTop;
 				fake.scrollLeft = ev.target.scrollLeft;
 			}
+			// Calculate range and friends here after we've made our fake textarea/input divs.
+			range = document.caretRangeFromPoint(ev.clientX, ev.clientY);
+			rp = range.startContainer;
+			ro = range.startOffset;
 			
 			if(fake) {
 				// At the end of a line, don't do anything or you just get beginning of next line
@@ -1030,20 +1036,15 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		switch(request.type) {
 			case 'enable':
-				rcxContent.enableTab();
-				window.rikaichan.config = request.config;
-				console.log("enable");
+				rcxContent.enableTab(request.config);
 				break;
 			case 'disable':
 				rcxContent.disableTab();
-				console.log("disable");
 				break;
 			case 'showPopup':
-				console.log("showPopup");
 				rcxContent.showPopup(request.text);
 				break;
 			default:
-				console.log(request);
 		}
 	}
 );
